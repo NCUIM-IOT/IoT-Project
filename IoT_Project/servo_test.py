@@ -1,43 +1,41 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
 
-#Libraries
-import time    #https://docs.python.org/fr/3/library/time.html
+import time 
 import sys
-from adafruit_servokit import ServoKit    #https://circuitpython.readthedocs.io/projects/servokit/en/latest/
+from adafruit_servokit import ServoKit 
 
-#Constants
+
 nbPCAServo=1
 
-#Parameters
+
 MIN_IMP  =[500]
 MAX_IMP  =[2500]
 MIN_ANG  =[0]
 MAX_ANG  =[180]
 
-#Objects
+
 pca = ServoKit(channels=16)
-# function init 
+
 def init():
 
     for i in range(nbPCAServo):
         pca.servo[i].set_pulse_width_range(MIN_IMP[i] , MAX_IMP[i])
 
 
-# function main 
+
 def main():
 
     global first
     first=input('input the test angle')
     pcaFirstScenario();
-# function pcaScenario 
+
+    
 def pcaFirstScenario():
-    """Scenario to test servo"""
+
     for j in range(MIN_ANG[0],int(first),1):
-        print("Send angle {} to Servo1".format(j))
+        print("Send angle {} to Servo".format(j))
         pca.servo[0].angle = j
     for j in range(int(first),MIN_ANG[0],-1):
-        print("Send angle {} to Servo1".format(j))
+        print("Send angle {} to Servo".format(j))
         pca.servo[0].angle = j
         time.sleep(0.01)
     pca.servo[0].angle=None #disable channel
