@@ -49,7 +49,12 @@ It is a service provided by Microsoft. You can use it to train your acne model a
 
 #### STEP 2 : Connect the PCA9685 and your raspberry pi 3
 
-![image]https://www.aranacorp.com/wp-content/uploads/16-channel-pwm-controller-pca9685-raspberry-pi_bb-1080x675.png
+You can check out the picture and you can put the 'vcc' to pinout 1(3v3 power), too.
+<font color="red"> Please be careful! Don't insert the wrong pinout or it will easily burn out. </font>
+
+![image](https://www.aranacorp.com/wp-content/uploads/16-channel-pwm-controller-pca9685-raspberry-pi_bb-1080x675.png)
+
+
 
 
 
@@ -62,4 +67,5 @@ It is a service provided by Microsoft. You can use it to train your acne model a
 
 ## Reference Link
 
-- servo_test.py & init_servo_test.py : https://www.aranacorp.com/en/using-a-pca9685-module-with-raspberry-pi/
+1. servo_test.py & init_servo_test.py : https://www.aranacorp.com/en/using-a-pca9685-module-with-raspberry-pi/
+2. connect the PCA9685 and your raspberry pi 3 : https://www.aranacorp.com/wp-content/uploads/16-channel-pwm-controller-pca9685-raspberry-pi_bb-1080x675.png
