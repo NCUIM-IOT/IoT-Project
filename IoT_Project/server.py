@@ -6,7 +6,7 @@ from flask import url_for
 from adafruit_servokit import ServoKit 
 from azure.cognitiveservices.vision.customvision.prediction import CustomVisionPredictionClient
 from msrest.authentication import ApiKeyCredentials
-import time    #https://docs.python.org/fr/3/library/time.htmlimport picamera
+import time
 import cv2
 import socket 
 import io
@@ -20,17 +20,17 @@ credentials = ApiKeyCredentials(in_headers={"Prediction-key": "<Your Prediction 
 predictor = CustomVisionPredictionClient("<Your Endpoint>", credentials)
 
 
-#Constants
+
 nbPCAServo=6
 
-#Parameters
+
 MIN_IMP  =[500, 500, 500, 500, 500, 500]
 MAX_IMP  =[2500, 2500, 2500, 2500, 2500, 2500]
 INT_ANG  =[179, 30, 70, 0, 110, 0]
 MIN_ANG  =[179, 0, 45, 0, 60, 0]
 MAX_ANG  =[180, 180, 180, 50, 150, 180]
 
-#Objects
+
 pca = ServoKit(channels=16)
 
 
