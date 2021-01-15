@@ -32,6 +32,14 @@ pip3 install opencv-python
 pip3 install adafruit-circuitpython-servokit
 `
 
+`
+pip3 install azure-cognitiveservices-vision-customvision
+`
+
+`
+pip install msrest
+`
+
 ### MG996R Servo Motor
 
 Before you put them onto the robotic arm, you can first test the way they operate by the code. It will first ask you enter a number between 0-180, and you will see the motor operating.
@@ -78,14 +86,45 @@ There are sixteen positions that can provide the control of the servo motors. So
 <font color="red"> Please be careful when you plug into the socket and don't touch the power supply when it's powered. </font>
 ![image](https://raw.githubusercontent.com/oohyuti/IoT-Project/main/PCA9685_Power%20Supply.jpg)
 
-### You can watch the video to check if you have connected all the things right.
-[![](http://img.youtube.com/vi/Q-PQdTYBZAw/0.jpg)](http://www.youtube.com/watch?v=Q-PQdTYBZAw "")
+### You can watch the video [click here](https://www.youtube.com/watch?v=Q-PQdTYBZAw) to check if you have connected all the things right.
 
 ## Test the robotic arm
 
-After connecting all the hardware components. You can now 
+After connecting all the hardware components. You can now test your robotic arm by insert the init angles.
+You can find the code in "IoT/init_servo_test.py"
+
+You have to change the number on line 13 `INT_ANG  =[179, 0, 70, 0, 110, 90]`. Just insert the numbers you want to test and click run, and the motor will start to turn. Remember to keep your eyes on the devices when it is running. Because when the servo motors are installed onto the robotic arm, there will be some angle restrict to the motors so please be careful.
+
+Remeber to record those angles that each motor can't reach. By this way, you can set up the minimum angles in your main program.
+
+## Run the main program - server.py
+
+Before you run the main program server.py. There is still something to set up.
+
+### Custom Vision - Prediction Key
+
+I've taken off my prediction key, endpoint, iteration name and project id in "server.py".
+You can find all those data in the operation page of custom vision. (Click the right-top setting button and you will see the information.) Remember to publish the one you want to use as the recognition function.
+
+### Revise the minimum and maximum restrict of robotic arm
+
+In line30 and line31, I've set up my configuration, you should correct them with your record when your testing your robotic arm by the init_servo_test.py
+
+### Now, you can run "server.py"
+
+After you run the program, go to 127.0.0.1:5000 to see the user interface. If the console came up with some numbers or you see the green box, you can click the let's go button to see the arm moving.
+
+## There's still something you should know
+
+1. If the console comes up with ` [Errno 98] Address already in use` , it means that the program stopped accidently. 
+You should then enter `netstat -tlnp|grep 5000` in the terminator. It will come up with the PID number that occupies the port number. And next you enter `kill <PID number>`.
+
+2. If the program can't find the camera, you can change then number 0 to -1 in line81 `vc = cv2.VideoCapture(-1)`. It may help.
 
 ## Reference Link
 
 1. servo_test.py & init_servo_test.py : https://www.aranacorp.com/en/using-a-pca9685-module-with-raspberry-pi/
 2. connect the PCA9685 and your raspberry pi 3 : https://www.aranacorp.com/wp-content/uploads/16-channel-pwm-controller-pca9685-raspberry-pi_bb-1080x675.png
+3. server.py:
+   https://dev.to/stratiteq/puffins-detection-with-azure-custom-vision-and-python-2ca5
+   https://www.hackster.io/ruchir1674/video-streaming-on-flask-server-using-rpi-ef3d75
