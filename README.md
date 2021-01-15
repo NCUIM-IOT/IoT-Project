@@ -49,12 +49,12 @@ It is a service provided by Microsoft. You can use it to train your acne model a
 
 #### STEP 2 : Connect the PCA9685 and your raspberry pi 3
 
-Please
+![image]https://www.aranacorp.com/wp-content/uploads/16-channel-pwm-controller-pca9685-raspberry-pi_bb-1080x675.png
 
 
-{%youtube Q-PQdTYBZAw %}
 
 
+[![](http://img.youtube.com/vi/Q-PQdTYBZAw/0.jpg)](http://www.youtube.com/watch?v=Q-PQdTYBZAw "")
 
 ## Test the robotic arm
 
