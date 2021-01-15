@@ -16,7 +16,7 @@ It's an IoT project that can help people put medicine on their bacnes. By using 
 
 ## Preparation
 
-#### Raspberry Pi 3 
+### Raspberry Pi 3 
 
 You need to install some packages to start this project.
 
@@ -120,6 +120,8 @@ After you run the program, go to 127.0.0.1:5000 to see the user interface. If th
 You should then enter `netstat -tlnp|grep 5000` in the terminator. It will come up with the PID number that occupies the port number. And next you enter `kill <PID number>`.
 
 2. If the program can't find the camera, you can change then number 0 to -1 in line81 `vc = cv2.VideoCapture(-1)`. It may help.
+
+## [My Video](https://youtu.be/dkQ-8wHkPck)
 
 ## Reference Link
 
